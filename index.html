@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<meta name="theme-color" content="#080909">
+<title>Joao Barao · Prodigy Players</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,200;0,300;0,400;0,700;0,800;1,800&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+
+  html, body {
+    height:100%;
+    background:#080909;
+    font-family:'Barlow Condensed', sans-serif;
+    color:#fff;
+    overflow-x:hidden;
+  }
+
+  body {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    padding:40px 24px;
+    position:relative;
+  }
+
+  /* hex texture */
+  body::before {
+    content:'';
+    position:fixed;
+    inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='97' viewBox='0 0 56 97'%3E%3Cpath d='M28 0 L56 16 L56 48 L28 64 L0 48 L0 16 Z' fill='none' stroke='rgba(255,255,255,0.045)' stroke-width='1'/%3E%3Cpath d='M28 64 L56 80 L56 112 L28 128 L0 112 L0 80 Z' fill='none' stroke='rgba(255,255,255,0.045)' stroke-width='1'/%3E%3C/svg%3E");
+    background-size:56px 97px;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /* center circle arc */
+  .arc {
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .content {
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:100%;
+    max-width:360px;
+    gap:32px;
+  }
+
+  /* Logo + name block */
+  .identity {
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:16px;
+  }
+
+  .logo {
+    width:110px;
+    height:110px;
+    object-fit:contain;
+  }
+
+  .name {
+    font-size:42px;
+    font-weight:800;
+    line-height:0.88;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    text-align:center;
+    color:#fff;
+  }
+
+  .title {
+    font-size:11px;
+    font-weight:300;
+    letter-spacing:0.4em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.38);
+    text-align:center;
+    margin-top:4px;
+  }
+
+  /* divider */
+  .rule {
+    width:48px;
+    height:1px;
+    background:rgba(255,255,255,0.12);
+  }
+
+  /* action buttons */
+  .actions {
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    gap:12px;
+  }
+
+  .btn {
+    display:flex;
+    align-items:center;
+    gap:16px;
+    width:100%;
+    padding:18px 22px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid rgba(255,255,255,0.09);
+    border-radius:10px;
+    text-decoration:none;
+    color:#fff;
+    transition:background 0.15s, border-color 0.15s;
+    cursor:pointer;
+  }
+
+  .btn:active {
+    background:rgba(255,255,255,0.09);
+    border-color:rgba(255,255,255,0.2);
+  }
+
+  .btn-icon {
+    width:40px;
+    height:40px;
+    border-radius:8px;
+    background:rgba(255,255,255,0.07);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+  }
+
+  .btn-icon svg {
+    width:20px;
+    height:20px;
+  }
+
+  .btn-text {
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+  }
+
+  .btn-label {
+    font-size:16px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:#fff;
+  }
+
+  .btn-sub {
+    font-size:11px;
+    font-weight:300;
+    letter-spacing:0.1em;
+    color:rgba(255,255,255,0.38);
+    text-transform:uppercase;
+  }
+
+  .btn-arrow {
+    margin-left:auto;
+    opacity:0.25;
+    flex-shrink:0;
+  }
+
+  /* tagline */
+  .tagline {
+    font-size:11px;
+    font-weight:800;
+    font-style:italic;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,0.18);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<svg class="arc" viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+  <circle cx="200" cy="700" r="320" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1.5"/>
+  <circle cx="200" cy="700" r="260" fill="none" stroke="rgba(255,255,255,0.025)" stroke-width="1"/>
+</svg>
+
+<div class="content">
+
+  <div class="identity">
+    <img class="logo" src="logo.png" alt="Prodigy Players">
+    <div>
+      <div class="name">Joao<br>Barao</div>
+      <div class="title">Football Agent &amp; Scout</div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="actions">
+
+    <!-- Save Contact -->
+    <a class="btn" href="joao.vcf" download="Joao_Barao.vcf">
+      <div class="btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <div class="btn-label">Save Contact</div>
+        <div class="btn-sub">Add to your phone</div>
+      </div>
+      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- WhatsApp -->
+    <a class="btn" href="https://wa.me/16048622023" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <svg viewBox="0 0 24 24" fill="white">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <div class="btn-label">WhatsApp</div>
+        <div class="btn-sub">+1 604 862 2023</div>
+      </div>
+      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Personal Instagram -->
+    <a class="btn" href="https://www.instagram.com/joao_prodigyplayers/" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <div class="btn-label">My Instagram</div>
+        <div class="btn-sub">@joao_prodigyplayers</div>
+      </div>
+      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+    <!-- Agency Instagram -->
+    <a class="btn" href="https://www.instagram.com/prodigyplayers.pt/" target="_blank" rel="noopener">
+      <div class="btn-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5"/>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+        </svg>
+      </div>
+      <div class="btn-text">
+        <div class="btn-label">Prodigy Players</div>
+        <div class="btn-sub">@prodigyplayers.pt</div>
+      </div>
+      <svg class="btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+
+  </div>
+
+  <div class="tagline">Together we dare</div>
+
+</div>
+</body>
+</html>
